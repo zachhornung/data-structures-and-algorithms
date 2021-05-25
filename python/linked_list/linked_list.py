@@ -1,9 +1,11 @@
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.length = 0
 
     def insert(self, value):
         self.head = Node(value, self.head)
+        self.length += 1
 
     def includes(self, search_value):
         current = self.head
@@ -28,8 +30,10 @@ class LinkedList:
         while current:
             if current.next == None:
                 current.next = Node(value)
+                self.length += 1
                 break
             current = current.next
+
 
 
     def insert_before(self, value, new_value):
@@ -41,6 +45,7 @@ class LinkedList:
                 break
             if current.value == value:
                 previous.next = Node(new_value, current)
+                self.length += 1
                 break
             previous = current
             current = current.next
@@ -54,9 +59,26 @@ class LinkedList:
                 break
             if current.value == value:
                 current.next = Node(new_value, insert_before_this)
+                self.length += 1
                 break
             current = current.next
             insert_before_this = current.next
+
+    def kth_from_end(self, num):
+        if num < 0:
+            return 'Given number cannot be negative'
+        if self.length == 1:
+            return f'There is only one node in this linked list. Its value is {self.head.value}'
+        if num > self.length:
+            return 'Given number is outside of range'
+        if self.length - num == 0:
+            return self.head.value
+
+        current = self.head
+        for _ in range(1, self.length-num):
+            current = current.next
+        return current.value
+
 
 
 class Node:
