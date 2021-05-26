@@ -64,21 +64,25 @@ class LinkedList:
             insert_before_this = current.next
 
     def kth_from_end(self, num):
-        # if num < 0:
-        #     return 'Given number cannot be negative'
-        # if self.length == 1:
-        #     return f'There is only one node in this linked list. Its value is {self.head.value}'
-        # if num > self.length:
-        #     return 'Given number is outside of range'
-        # if self.length - num == 0:
-        #     return self.head.value
+        if num < 0:
+            return 'Given number cannot be negative'
+        if self.length == 1:
+            return f'There is only one node in this linked list. Its value is {self.head.value}'
+        if num > self.length:
+            return 'Given number is outside of range'
+        if self.length - num == 0:
+            return self.head.value
 
-        try:
-            current = self.head
-            for _ in range(1, self.length-num):
-                current = current.next
-            return current.value
-        except: return 'Something went wrong, please try again'
+        current = self.head
+        for _ in range(1, self.length-num):
+            current = current.next
+        return current.value
+        # try:
+        #     current = self.head
+        #     for _ in range(1, self.length-num):
+        #         current = current.next
+        #     return current.value
+        # except: return 'Something went wrong, please try again'
 
 
 
