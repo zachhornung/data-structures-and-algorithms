@@ -70,9 +70,7 @@ class LinkedList:
             return f'There is only one node in this linked list. Its value is {self.head.value}'
         if num > self.length:
             return 'Given number is outside of range'
-        if self.length - num == 0:
-            return self.head.value
-
+        
         current = self.head
         for _ in range(1, self.length-num):
             current = current.next
