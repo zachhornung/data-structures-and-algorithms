@@ -75,12 +75,7 @@ class LinkedList:
         for _ in range(1, self.length-num):
             current = current.next
         return current.value
-        # try:
-        #     current = self.head
-        #     for _ in range(1, self.length-num):
-        #         current = current.next
-        #     return current.value
-        # except: return 'Something went wrong, please try again'
+        
 
 
 
