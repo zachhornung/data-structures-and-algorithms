@@ -1,14 +1,12 @@
 import random
 
-
 class AnimalShelter:
   def __init__(self, cats, dogs):
     self.cats = cats
     self.cat_names = ['fuzzy', 'lazy', 'cuddly', 'maui', 'kitty', 'kitty kat', 'another cat', 'so many cats']
     self.dogs = dogs
     self.dog_names = ['peter', 'doug', 'douglas', 'kyle', 'zach', 'river', 'cedar', 'tree', 'banana', 'baby goat']
-    
-    
+        
   def enqueue(self, animal):
     if animal == 'cat':
       self.cats.enqueue(random.choice(self.cat_names))
@@ -24,11 +22,6 @@ class AnimalShelter:
       return self.cats.dequeue()
     else:
       return 
-
-
-
-
-
 
 class Queue:
   """This class is a queue
