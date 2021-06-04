@@ -38,3 +38,11 @@ def test_really_bad_brackets():
 def one_last_test_and_goodnight():
   im_tired = 'this{}(){}{}{{}}([][][])[][][]{()()()}[(){}[]]will{}{}paaaaaaaasssssssss.kjsdfg;kjsdnfgjiabfiabif'
   assert find_brackets(im_tired) == True
+  
+def test_babies():
+  test_str = "()(({}))[]"
+  assert find_brackets(test_str) == True
+  
+def test_more():
+  test_str = "()(({}))[])"
+  assert find_brackets(test_str) == False
