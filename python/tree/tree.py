@@ -50,20 +50,23 @@ class BinarySearchTree(BinaryTree):
         
     return walk(self.root, value)
   
-  def pre_order_traversal(self):
+  def pre_order_traversal(self, do_thing=print):
     collection = []
     
     if not self.root:
       return collection
     
     def walk(root, collection):
-      if not root:
+      if (not root) and collection:
         return collection
       
       collection.append(root.value)
       walk(root.left, collection)
       walk(root.right, collection)
     walk(self.root, collection)
+
+    if do_thing == print:
+      [print(i) for i in collection]
       
     return collection
   
