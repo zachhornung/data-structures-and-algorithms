@@ -1,4 +1,3 @@
-# from collections import deque
 class QueueNode:
   def __init__(self, value, next_=None):
     self.value = value
@@ -57,28 +56,7 @@ class BinaryTree:
         queue.enqueue(node.right)
     
     return collection
-      
-  # @staticmethod  
-  # def breadth_first(tree=None):
-  #   collection = []
-  #   queue = Queue()
-  #   queue.append(tree.root)
-    
-  #   if not tree:
-  #     return []
-      
-    
-  #   while (len(queue) >0) and not ValueError:
-  #     collection.append(queue[0].value)
-  #     if queue[0].left:
-  #       queue.enqueue(queue[0].left)
-  #     if queue[0].right:
-  #       queue.enqueue(queue[0].right)
-        
-  #     queue.dequeue()
-      
-  #   return collection
-    
+
   def add(self, value):
     if not self.root:
       self.root = Node(value)
