@@ -96,3 +96,12 @@ def test_find_max_value():
   reg_tree.add(3)
   reg_tree.add(6)
   assert reg_tree.max_value() == 6
+  
+def test_breadth_first():
+  reg_tree = BinaryTree()
+  reg_tree.add(1)
+  reg_tree.add(2)
+  reg_tree.add(5)
+  reg_tree.add(3)
+  reg_tree.add(6)
+  assert BinaryTree.breadth_first(reg_tree) == [1,2,5,3,6]
