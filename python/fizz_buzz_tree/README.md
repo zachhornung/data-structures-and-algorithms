@@ -1,11 +1,9 @@
 # Challenge Summary
-<!-- Description of the challenge -->
+This challenge is to take in a kary tree, convert any values divisible by 3 to 'fizz', 5 to 'buzz', 15 to 'fizzbuzz', and return a copy of the tree with the modified values.
 
 ## Whiteboard Process
 * [Whiteboard](fizz_buzz_tree.jpg)
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+we used arrays for children, and this approach ends up with O(n) time efficiency because you must necessarily visit all of the nodes in the tree. The space complexity is O(n) as well because there will be a copy of the tree made. there are no recursive calls so the callstack wont take up more space than O(n).
 
-## Solution
-<!-- Show how to run your code, and examples of it in action -->
