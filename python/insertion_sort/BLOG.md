@@ -42,6 +42,7 @@ j gets reassigned to j-1 like so:
 ![frame11](frame11.jpg)
 
 the array is now sorted! here is the python code for the insertion sort algorithm:
+  ```
   def insertion_sort(arr):
   for index, value in enumerate(arr):
     j = index-1
@@ -49,5 +50,6 @@ the array is now sorted! here is the python code for the insertion sort algorith
       arr[j+1] = arr[j]
       j-=1
     arr[j+1] = value
+    ```
 
 
