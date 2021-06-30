@@ -58,6 +58,12 @@ def test_this_should_be_false():
   tree2.add(43)
   
   common_values = find_common_values(tree1, tree2)
-  assert common_values != [22, 32, 66, 44, 43,1,1,1,1,1,2,2,2,2,3,3,3,3,3]
+  assert common_values != [22, 32, 66, 44, 43,1,1,1,1,1,2,2,2,2,3,3,3,3,3] and common_values != []
+  
+def test_empty_return():
+  tree1 = BinarySearchTree()
+  tree2 = BinarySearchTree()
+  common_values = find_common_values(tree1, tree2)
+  assert common_values == []
   
 
