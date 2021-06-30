@@ -13,3 +13,13 @@ def test_right_join():
   d1 = {char:char for char in string.ascii_lowercase}
   d2 = {char:(char+char if i%2 ==0 else char) for i,char in enumerate(string.ascii_lowercase)}
   assert left_join(d1, d2, right_join=True) == [['a', 'aa', 'a'], ['b', 'b', 'b'], ['c', 'cc', 'c'], ['d', 'd', 'd'], ['e', 'ee', 'e'], ['f', 'f', 'f'], ['g', 'gg', 'g'], ['h', 'h', 'h'], ['i', 'ii', 'i'], ['j', 'j', 'j'], ['k', 'kk', 'k'], ['l', 'l', 'l'], ['m', 'mm', 'm'], ['n', 'n', 'n'], ['o', 'oo', 'o'], ['p', 'p', 'p'], ['q', 'qq', 'q'], ['r', 'r', 'r'], ['s', 'ss', 's'], ['t', 't', 't'], ['u', 'uu', 'u'], ['v', 'v', 'v'], ['w', 'ww', 'w'], ['x', 'x', 'x'], ['y', 'yy', 'y'], ['z', 'z', 'z']]
+  
+def test_right_join_different_number_of_elements_in_each_dict():
+  d1 = {char:char for char in string.ascii_lowercase}
+  d2 = {char:(char+char if i%2 ==0 else char) for i,char in enumerate(string.ascii_lowercase[:13])}
+  assert left_join(d1,d2, right_join=True) == [['a', 'aa', 'a'], ['b', 'b', 'b'], ['c', 'cc', 'c'], ['d', 'd', 'd'], ['e', 'ee', 'e'], ['f', 'f', 'f'], ['g', 'gg', 'g'], ['h', 'h', 'h'], ['i', 'ii', 'i'], ['j', 'j', 'j'], ['k', 'kk', 'k'], ['l', 'l', 'l'], ['m', 'mm', 'm']]
+  
+def test_this_shouldnt_happen():
+  d1 = {char:char for char in string.ascii_lowercase}
+  d2 = {char:(char+char if i%2 ==0 else char) for i,char in enumerate(string.ascii_lowercase)}
+  assert (left_join(d1,d2) != ['babies','goats','baby goats']) and (left_join(d1,d2) != [])
