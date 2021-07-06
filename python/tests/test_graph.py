@@ -55,7 +55,37 @@ def test_insert_lots_of_things_added():
           if debug:
             breakpoint()
             
-  lets_test_this_breakpoint_thing(debug=False)
+  lets_test_this_breakpoint_thing()
+  
+def test_breadth_first_traversal():
+  graph = Graph()
+  
+  pandora = graph.add_vertex('Pandora')
+  arendelle = graph.add_vertex('Arendelle')
+  metroville = graph.add_vertex('Metroville')
+  monstroplolis = graph.add_vertex('Monstroplolis')
+  narnia = graph.add_vertex('Narnia')
+  naboo = graph.add_vertex('Naboo')
+  graph.add_edge(pandora, arendelle)
+  # graph.add_edge(arendelle, pandora)
+  graph.add_edge(arendelle, metroville)
+  # graph.add_edge(metroville, arendelle)
+  graph.add_edge(arendelle, monstroplolis)
+  # graph.add_edge(monstroplolis, arendelle)
+  # graph.add_edge(metroville, monstroplolis)
+  graph.add_edge(monstroplolis, metroville)
+  graph.add_edge(metroville, narnia)
+  # graph.add_edge(narnia, metroville)
+  graph.add_edge(metroville, naboo)
+  # graph.add_edge(naboo,metroville)
+  graph.add_edge(monstroplolis, naboo)
+  # graph.add_edge(naboo, monstroplolis)
+  graph.add_edge(naboo, narnia)
+  # graph.add_edge(narnia, naboo)
+
+  babies = graph.traverse(pandora)
+  # breakpoint()
+  assert babies == ['Pandora', 'Arendelle', 'Metroville', 'Monstroplolis', 'Naboo', 'Narnia']
   
 
   

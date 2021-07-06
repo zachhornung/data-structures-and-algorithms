@@ -1,3 +1,6 @@
+from stacks_and_queues.stacks_and_queues import Node ,Queue
+from collections import deque
+
 class Vertex:
   def __init__(self, value):
     self.value = value
@@ -24,4 +27,27 @@ class Graph:
   
   def size(self):
     return len(self.adjacency_list)
+  
+  def traverse(self, node, debug=False):
+    queue = Queue()
+    ret_baby = []
+    if not node:
+      return 'babies'
+    visited = {}
+    queue.enqueue(node)
+    while queue.peek():
+      current = queue.dequeue()
+      visited[current] = True
+      if current == 'this queue is empty buddy':
+        break
+      for baby_node in self.adjacency_list[current]:
+        if baby_node == None:
+          break
+        if not baby_node in visited:
+          queue.enqueue(baby_node)
+      ret_baby.append(current.value)
+      if debug:
+        breakpoint()
+    return ret_baby
+      
     
