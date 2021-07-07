@@ -1,4 +1,5 @@
 from graph.graph import Graph, Vertex
+from graph_depth_first_traversal.graph_depth_first_traversal import depth_first_pre_order
 
 def test_imports():
   assert Graph and Vertex
@@ -122,6 +123,27 @@ def test_city_path_finder():
   
   for i,test in enumerate(test_cases):
     assert business_trip(graph, test) == expected_results[i]
+    
+def test_depth_first_traversal():
+  
+  graph = Graph()
+  nodes = {node:graph.add_vertex(node) for node in ['a','b','c','d','e','f','g','h']}
+
+  graph.add_edge(nodes['a'], nodes['b'])
+  graph.add_edge(nodes['a'], nodes['d'])
+  graph.add_edge(nodes['b'], nodes['c'])
+  graph.add_edge(nodes['b'], nodes['d'])
+  graph.add_edge(nodes['c'], nodes['g'])
+  graph.add_edge(nodes['d'], nodes['e'])
+  graph.add_edge(nodes['d'], nodes['h'])
+  graph.add_edge(nodes['a'], nodes['f'])
+  
+  
+  assert [node.value for node in depth_first_pre_order(list(graph._adjacency_list.keys())[0],graph)] == ['a', 'b', 'c', 'g', 'd', 'e', 'h', 'f']
+  
+def test_babies():
+  assert 'babies'
+  
   
   
   
