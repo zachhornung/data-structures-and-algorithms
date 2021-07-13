@@ -1,0 +1,5 @@
+# Merge Sort Blog
+Thanks for checking out my super cool blog about algorithms, today we're doing merge sort. Merge sort uses a combination of looping and recursion. The general gist is to break the array to be sorted into halves using recursion until the the array has one element in it, and then call a merge function to put all the pieces back together again, but in order. Below is a visual for how this works:
+![Whiteboard](merge_sort.png)
+
+as you can see, it is just a matter of breaking things down into smaller problems. If we break this big array down into individual pieces, the computer can rearrange them and put them back together. This is perfect for recursion. As you can see, the array is progressively broken down into halves, and each half gets put onto the callstack until there is just one element for the left and the right. Merge is then called, and the pieces are put back together. This solution is faster than insertion sort on average because breaking each array in half is O(log(n)) time, that is done until we get a single element. Then the elements are recombined, and that gives us O(n * log(n)). 
