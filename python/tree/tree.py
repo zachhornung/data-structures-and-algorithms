@@ -8,6 +8,47 @@ class BinaryTree:
   def __init__(self):
     self.root = None
     
+  def add(self, value):
+    if not self.root:
+      self.root = Node(value)
+      return
+    
+    def walk(root):
+      if not root:
+        return
+      
+      if not root.left:
+        root.left = Node(value)
+        return
+      if root.left and not root.right:
+        root.right = Node(value)
+        return
+      walk(root.left)
+      walk(root.right)
+        
+    walk(self.root)
+    
+  def max_value(self):
+    counter = 0
+    
+    if not self.root:
+      return
+    
+    def walk(root):
+      nonlocal counter
+      if not root:
+        return
+      
+      if root.value > counter:
+        counter = root.value
+      walk(root.left)
+      walk(root.right)
+      
+    walk(self.root)
+    
+    return counter
+        
+    
 class BinarySearchTree(BinaryTree):
   def add(self, value):
     if not self.root:
@@ -31,6 +72,9 @@ class BinarySearchTree(BinaryTree):
           root.right = Node(value)
           
     walk(self.root)
+    
+    
+  
     
   def contains(self, value):
     if self.root.value == value:

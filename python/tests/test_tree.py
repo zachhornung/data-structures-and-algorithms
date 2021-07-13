@@ -78,3 +78,21 @@ def test_post_order_traversal():
       3  
   """ 
   assert tree.post_order_traversal() == [3,4,6,5]
+  
+def test_add_regular_binary_tree():
+  reg_tree = BinaryTree()
+  reg_tree.add(1)
+  reg_tree.add(2)
+  reg_tree.add(5)
+  reg_tree.add(3)
+  reg_tree.add(6)
+  assert (reg_tree.root.value == 1) and (reg_tree.root.left.value == 2) and (reg_tree.root.right.value == 5) and (reg_tree.root.left.right.value == 6)
+  
+def test_find_max_value():
+  reg_tree = BinaryTree()
+  reg_tree.add(1)
+  reg_tree.add(2)
+  reg_tree.add(5)
+  reg_tree.add(3)
+  reg_tree.add(6)
+  assert reg_tree.max_value() == 6
