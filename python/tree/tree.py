@@ -1,3 +1,36 @@
+class QueueNode:
+  def __init__(self, value, next_=None):
+    self.value = value
+    self.next = next_
+  
+class Queue:
+  """This class is a queue
+  """
+  def __init__(self, front=None):
+    self.front = front
+    self.back = None
+    
+  def enqueue(self, value=None):
+    if self.front is None:
+      self.front = self.back = QueueNode(value)
+    else:
+      self.back.next = QueueNode(value)
+    
+  def dequeue(self):
+    if self.front is None:
+      return 
+    ret = self.front.value
+    self.front = self.front.next
+    return ret
+    
+  def peek(self):
+    if self.front is not None:
+      return self.front.value
+    return 
+  
+  
+  
+
 class Node:
   def __init__(self, value, left=None, right=None):
     self.value = value
@@ -8,6 +41,22 @@ class BinaryTree:
   def __init__(self):
     self.root = None
     
+  @staticmethod
+  def breadth_first(tree):
+    collection = []
+    queue = Queue()
+    queue.enqueue(tree.root)
+    
+    while queue.peek():
+      node = queue.dequeue()
+      collection.append(node.value)
+      if node.left:
+        queue.enqueue(node.left)
+      if node.right:
+        queue.enqueue(node.right)
+    
+    return collection
+
   def add(self, value):
     if not self.root:
       self.root = Node(value)
